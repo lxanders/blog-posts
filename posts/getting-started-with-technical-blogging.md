@@ -21,7 +21,7 @@ Well known blogging engines like [wordpress.com](https://wordpress.com/) let you
 For me a blogging system should 
 
 - be easy to setup
-- don't require special technology on the server side -- a http web server should be enough
+- don't require special technology on the server side - a http web server should be enough
 - use a standard syntax for writing your blog articles so you can use them in other blogging engines or documents
 - bring no limitations how to backup your blog posts in a source format that can be reapplied without any problems later on another blogging engine
 - be easily customizable with standard web technologies

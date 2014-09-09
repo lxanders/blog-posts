@@ -7,16 +7,25 @@
 Why blog
 --------
 
-As you might already know, blogging is a great way to share your experiences and thoughts. From my point of view, technical writing is especially great. It offers an easy way to help others and profit from your hard learned lessons. This comes with an additional benefit for the writer: By teaching others or writing things in detail for others the writer can get a new perspective which things might be hard to get or which he doesn't understand totally himself. Writing them down in detail helps the blogger to remember the things he is writing about. Last but not least you can use your own blogs if you run into the same problem once again later.
+You might be asking yourself exactly this question: Why should you invest the time and effort to write a blog?
+
+There is a number of things! Blogging is a great way to share your experiences and thoughts. From my point of view, technical writing is particularly great: It offers an easy way to help others and profit from your hard learned lessons. This comes with an additional benefit for the writer: By teaching others or writing things in detail for others the writer can get a new perspective which things might be hard to get or which he doesn't understand totally himself. Writing them down in detail helps the blogger to remember the things he is writing about. Last but not least you can use your own blogs if you run into the same problem once again later.
 
 Some days ago I had the pleasure to attend the MunichJS meetup - a meeting for JavaScript enthusiasts in Munich, Germany. One of the speakers was Patrick Mulder ([@mulpat](https://twitter.com/mulpat)) who is himself an active blogger, a software engineer and web developer. His topic was technical writing and blogging and he inspired me, to write something myself again (thanks for that, Patrick!). His talk was focussed on writing itself but he mentioned some interesting tools that get you started with your own blog. You can find the [slides to his talk](https://speakerdeck.com/mulderp/blogging-and-writing-about-javascript) here and visit his really [interesting blog](http://thinkingonthinking.com/).
 
 Blogging engines in general
 ---------------------------
 
-Being a software engineer, I try to keep things simple ([KISS principle](http://en.wikipedia.org/wiki/KISS_principle)). Many blogging engines out there advertise themselve as very easy to use but the ones I know are most of the time quite bloated and have some points in common that I don't like particularly.
+If you ever thought about blogging or maybe even tried it, you most certainly heard about [wordpress](https://wordpress.com/). It lets you setup your blog very fast. Well known blogging engines like wordpress offer things like [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) and a rich feature set. Unfortunately this comes at a high cost:
 
-Well known blogging engines like [wordpress.com](https://wordpress.com/) let you setup your blog very fast. They offer things like [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) and a rich feature set. Unfortunately this comes at the cost of not having your blog posts in a standard format that can be opened in any text editor. If you want to host your blog yourself you can use the specific wordpress version for this from [wordpress.org](http://wordpress.org/). It is quite pluggable and extensible but not very easy to customize and all the time you put into changing the blog to satisfy your needs is invane once you want to change to another blogging engine. Other problems are, that through their rich feature set they tend to be the target of security breaches.
+- Typically the use their own syntax for blog posts. Not having your posts in a standard format that can be opened in any text editor makes many things (one is backing up your posts) much harder and less easy to reuse them with a new blogging engine.
+- The hosted service of wordpress can't be customised as if you hosted and installed the blogging engine yourself. There is a specific wordpress version for this: [wordpress.org](http://wordpress.org/). While being pluggable and extensible it is not very easy to customise and all the time you put into changing the blog to satisfy your needs is invane once you want to change to another blogging engine. 
+- Through their rich feature set they tend to be the target of security breaches.
+
+Being a software engineer, I try to keep things simple ([KISS principle](http://en.wikipedia.org/wiki/KISS_principle)). This is clearly not achievable with tools like wordpress. So what can make blogging fun for a person who wants to control things while keeping things simple?
+
+Choosing your blogging engine: What is important?
+-------------------------------------------------
 
 For me a blogging system should 
 
@@ -24,14 +33,14 @@ For me a blogging system should
 - don't require special technology on the server side - a http web server should be enough
 - use a standard syntax for writing your blog articles so you can use them in other blogging engines or documents
 - bring no limitations how to backup your blog posts in a source format that can be reapplied without any problems later on another blogging engine
-- be easily customizable with standard web technologies
+- be easily customisable with standard web technologies
 - make deploying the blog posts easy
 - offer an easy way to delete or add blog posts
 
-These points can be achieved by using so called static site generators.
+The answer to all of these points are so called static site generators.
 
-Blogging engines I tried
-------------------------
+Static site generators to the rescue
+------------------------------------
 
 In the last months I tested various static site generators:
 
@@ -68,14 +77,14 @@ Now just follow the getting started guide further. It will get you started witho
 Customization
 -------------
 
-As Cabin is very lightweight, customization proves to be easy. The source code that is used for templating (using te [jade](http://jade-lang.com/) templating engine) is organized this way:
+As Cabin is very lightweight, customisation proves to be easy. The source code that is used for templating (using te [jade](http://jade-lang.com/) templating engine) is organized this way:
 
 - src
--- images
--- layouts: contains the layouts for the page -- e.g. the base template `base.jade` and the post template `post.jade`
--- pages: the templates for the pages like `about` or the `archive`
--- scripts
--- styles
+    - images
+    - layouts: contains the layouts for the page -- e.g. the base template `base.jade` and the post template `post.jade`
+    - pages: the templates for the pages like `about` or the `archive`
+    - scripts
+    - styles
 
 Save your blog posts
 --------------------
@@ -106,9 +115,15 @@ backup: {
 grunt.registerTask('backup', ['copy:backup']);
 ```
 
-Running `grunt backup` now copies my files to another directory which is actually a GitHub repository where I after that commit my changes. It would be easy to commit automatically but until now I want to keep this step manual.
+Running `grunt backup` now copies my files to another directory which is actually a GitHub repository where I can commit my changes after I wrote and previewed everything wie Cabin. It would be easy to commit automatically but until now I want to keep this step manual.
 
-From now on
------------
+Conclusion
+----------
 
-Feel free to contact me if you found this post helpful, something was missing for you or unclear or if you want to tell me something is wrong.
+Fortunately nowadays the answer which blogging engine to use is not the one solution-fits-all answer wordpress. People like me who want to be more flexible and to have everything under their own control can choose from a growing amount of interesting open source tools that can be used to get your blog up and running quite fast while still being able to customise it later as much as you want using standard web technologies. Having your posts under version control lets you change your blogging system easily without losing your precious posts.
+
+Feel free to contact me if you found this post interesting, helpful or something was missing for you or unclear. You want to tell me something I stated is wrong? Just contact me through twitter ([@lxanders](https://twitter.com/lxanders)) or comment this article.
+
+If - like Patrick did for me - I inspired you to start blogging, I'd be glad to here that from you, too.
+
+Now just start tinkering around with the tools in the open source cosmos - you will be surprised how easy it is to get started and how much fun writing something for others can be!
